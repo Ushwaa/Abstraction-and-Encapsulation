@@ -10,7 +10,7 @@ protected:
     double salary;
 
 public:
-    Employee(int id, std::string name) : id(id), name(name) {}
+    Employee(int id, std::string name) : id(id), name(name), salary(0) {}
     virtual void calculateSalary() = 0; // Pure virtual function
     virtual void display() const = 0;
     int getId() const { return id; }
@@ -22,7 +22,7 @@ public:
         : Employee(id, name), salary(salary) {}
 
     void calculateSalary() override {
-    
+        // Salary is fixed for full-time employees
     }
 
     void display() const override {
@@ -97,6 +97,7 @@ public:
     void displayPayrollReport() const {
         std::cout << "--- Employee Payroll Report ---\n";
         for (const auto& emp : employees) {
+            emp->calculateSalary(); // Ensure salary is calculated before displaying
             emp->display();
             std::cout << "\n";
         }
@@ -108,7 +109,6 @@ public:
         }
     }
 };
-
 
 template <typename T>
 T getValidInput(const std::string& prompt) {
