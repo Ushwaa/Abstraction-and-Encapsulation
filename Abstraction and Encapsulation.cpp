@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <limits> // For numeric_limits
+#include <limits>
 
 class Employee {
 protected:
@@ -22,7 +22,7 @@ public:
         : Employee(id, name), salary(salary) {}
 
     void calculateSalary() override {
-        // Salary is fixed for full-time employees
+    
     }
 
     void display() const override {
@@ -109,7 +109,7 @@ public:
     }
 };
 
-// Function to validate numeric input
+
 template <typename T>
 T getValidInput(const std::string& prompt) {
     T value;
@@ -117,7 +117,7 @@ T getValidInput(const std::string& prompt) {
         std::cout << prompt;
         std::cin >> value;
         if (std::cin.fail()) {
-            std::cin.clear(); // Clear the error flag
+            std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Discard invalid input
             std::cout << "Invalid input. Please enter a valid number.\n";
         } else {
@@ -142,7 +142,7 @@ int main() {
         std::cin >> choice;
 
         if (std::cin.fail()) {
-            std::cin.clear(); // Clear the error flag
+            std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Discard invalid input
             std::cout << "Invalid choice. Please enter a number between 1 and 5.\n";
             continue;
